@@ -380,6 +380,10 @@ body .modal {
     text-align: left;
 }
 
+.modal img{
+    cursor:pointer;
+}
+
 .CircularProgressbar .CircularProgressbar-text {
     font-size: 1rem !important;
 }
