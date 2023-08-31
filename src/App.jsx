@@ -3,13 +3,17 @@ import Header from './components/Header'
 import Modal from './components/Modal'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
 
-function App() {
+export default function App() {
   const [presupuesto,setPresupuesto] = useState(0)
   const [presupuestoValido,setPresupuestoValido] = useState(false)
   const [modal, setModal] = useState(false)
+  const [animarModal, setAnimarModal] = useState(false)
+  
   const handleNuevoGasto = () => {
     setModal(true)
-    console.log('diste click para anadir un nuevo gasto');
+    setTimeout(() => {
+      setAnimarModal(true)
+    }, 300);
   }
   
   return (
@@ -29,9 +33,13 @@ function App() {
         />
       </div>
       )}
-      {modal && <Modal setModal={setModal}/>}
+      {modal && 
+        <Modal 
+          setModal={setModal}
+          animarModal={animarModal}
+          setAnimarModal={setAnimarModal}
+      />}
   </div>
   )
 }
 
-export default App
