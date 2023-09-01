@@ -1,4 +1,3 @@
-
 export const Mensaje = ({children, tipo}) => {
   return (
     <div className={`alerta ${tipo}`}>
@@ -6,3 +5,5 @@ export const Mensaje = ({children, tipo}) => {
     </div>
   )
 }
+
+export default Mensaje

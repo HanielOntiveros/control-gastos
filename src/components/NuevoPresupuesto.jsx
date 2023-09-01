@@ -13,7 +13,6 @@ export const NuevoPresupuesto = ({presupuesto, setPresupuesto,setPresupuestoVali
 
             setMensaje('')
             setPresupuestoValido(true)
-            console.log(presupuesto);
         }
     }
 
