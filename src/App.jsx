@@ -1,7 +1,11 @@
 import { useState } from 'react'
+
 import Header from './components/Header'
+import ListadoGastos from './components/ListadoGastos'
 import Modal from './components/Modal'
+
 import { generarID } from './helpers'
+
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
 
 export default function App() {
@@ -19,12 +23,13 @@ export default function App() {
   }
     const guardarGasto = (gasto) => {
       gasto.id = generarID()
+      gasto.fecha = Date.now();
       setGastos([...gastos,gasto])
       console.log(gasto);
     }
   
   return (
-    <div>
+    <div className={modal && 'fijar'}>
       <Header 
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
@@ -32,13 +37,21 @@ export default function App() {
         setPresupuestoValido={setPresupuestoValido}
       />
       {presupuestoValido && (
+      <>
+      <main>
+        <ListadoGastos 
+          gastos={gastos}
+        />
+      </main>
+
       <div className='nuevo-gasto'>
         <img 
           src={IconoNuevoGasto}
           alt='icono nuevo gasto'
           onClick={handleNuevoGasto}
-        />
+          />
       </div>
+      </>
       )}
       {modal && 
         <Modal 
