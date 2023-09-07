@@ -29,12 +29,13 @@ export default function App() {
     }
   
   return (
-    <div className={modal && 'fijar'}>
+    <div className={modal ? 'fijar' : ''}>
       <Header 
         presupuesto={presupuesto}
         setPresupuesto={setPresupuesto}
         presupuestoValido={presupuestoValido}
         setPresupuestoValido={setPresupuestoValido}
+        gastos = {gastos}
       />
       {presupuestoValido && (
       <>
